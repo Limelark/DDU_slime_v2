@@ -50,6 +50,8 @@ func _on_enemy_hitbox_area_entered(area):
 	if	area.has_method("FireBall"):
 		health -= 20
 		print("fireball zombieHit")
+		area.get_parent().queue_free()
+		updateHealth()
 
 
 func _on_enemy_hitbox_area_exited(area):
@@ -76,7 +78,7 @@ func updateHealth():
 	var healthBar = $zombieHealth
 	
 	healthBar.value = health
-	if	health >= 100:
+	if	health >= 150:
 		healthBar.visible = false
 	else:
 		healthBar.visible = true
@@ -89,3 +91,5 @@ func deadCheck():
 		health = -999999999
 		
 	
+func takeFireBallDamage():
+	health -= 20

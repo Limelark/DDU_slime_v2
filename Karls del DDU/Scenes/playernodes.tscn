@@ -292,6 +292,7 @@ border_width_right = 7
 border_width_bottom = 7
 border_color = Color( 0.8, 0.8, 0.8, 0 )
 
+<<<<<<< Updated upstream
 [sub_resource type="DynamicFont" id=58]
 size = 43
 outline_color = Color( 0, 0, 0, 1 )
@@ -300,38 +301,41 @@ font_data = ExtResource( 6 )
 [node name="playernodes" type="Node2D"]
 
 [node name="Player" type="KinematicBody2D" parent="."]
+=======
+[node name="Player" type="KinematicBody2D"]
+>>>>>>> Stashed changes
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 1 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 1, -6 )
 frames = SubResource( 25 )
 animation = "SideIdle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2( -0.882068, 0.769021 )
 shape = SubResource( 26 )
 
-[node name="player_hitbox" type="Area2D" parent="Player"]
+[node name="player_hitbox" type="Area2D" parent="."]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/player_hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox"]
 shape = SubResource( 54 )
 
-[node name="slimeCooldown" type="Timer" parent="Player"]
+[node name="slimeCooldown" type="Timer" parent="."]
 wait_time = 0.5
 
-[node name="playerAttack" type="Timer" parent="Player"]
+[node name="playerAttack" type="Timer" parent="."]
 wait_time = 0.5
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 0.5, 0.5 )
 
-[node name="playerhealth" type="ProgressBar" parent="Player"]
+[node name="playerhealth" type="ProgressBar" parent="."]
 margin_left = -254.0
 margin_top = -148.0
 margin_right = 56.0
@@ -341,7 +345,7 @@ theme = SubResource( 55 )
 custom_styles/fg = SubResource( 56 )
 percent_visible = false
 
-[node name="playerMana" type="ProgressBar" parent="Player"]
+[node name="playerMana" type="ProgressBar" parent="."]
 margin_left = -254.0
 margin_top = -132.0
 margin_right = 56.0
@@ -351,14 +355,15 @@ theme = SubResource( 55 )
 custom_styles/fg = SubResource( 57 )
 percent_visible = false
 
-[node name="playerRegen" type="Timer" parent="Player"]
+[node name="playerRegen" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
 
-[node name="ManaTimer" type="Timer" parent="Player"]
+[node name="ManaTimer" type="Timer" parent="."]
 wait_time = 0.02
 autostart = true
 
+<<<<<<< Updated upstream
 [node name="ColorRect" type="ColorRect" parent="Player"]
 pause_mode = 2
 visible = false
@@ -407,3 +412,11 @@ texture = ExtResource( 4 )
 [connection signal="timeout" from="Player/playerRegen" to="Player" method="_on_playerRegen_timeout"]
 [connection signal="timeout" from="Player/ManaTimer" to="Player" method="_on_Timer_timeout"]
 [connection signal="pressed" from="Player/Button" to="Player/ColorRect" method="_on_Button_pressed"]
+=======
+[connection signal="area_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_entered"]
+[connection signal="area_exited" from="player_hitbox" to="." method="_on_player_hitbox_area_exited"]
+[connection signal="timeout" from="slimeCooldown" to="." method="_on_slimeCooldown_timeout"]
+[connection signal="timeout" from="playerAttack" to="." method="_on_playerAttack_timeout"]
+[connection signal="timeout" from="playerRegen" to="." method="_on_playerRegen_timeout"]
+[connection signal="timeout" from="ManaTimer" to="." method="_on_Timer_timeout"]
+>>>>>>> Stashed changes
