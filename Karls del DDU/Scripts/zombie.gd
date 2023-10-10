@@ -4,6 +4,8 @@ var speed = 70
 var chase = false
 var player = null
 
+
+
 var health = 150
 var in_attack_zone = false
 var dead = false
@@ -86,6 +88,4 @@ func deadCheck():
 		$zombieHealth.visible = false
 		health = -999999999
 		
-		
-	
 	

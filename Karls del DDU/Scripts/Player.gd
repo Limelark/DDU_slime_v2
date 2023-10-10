@@ -10,6 +10,7 @@ var Health = 100
 var player_alive = true
 var attack_ip = false
 var enemyType = null
+var FireBall = preload("res://Scenes/FireBall.tscn")
 
 func _physics_process(delta):
 	player_movement(delta);
@@ -20,6 +21,12 @@ func _physics_process(delta):
 		player_alive = false #alex endscreen
 		Health = 0
 	Global.playerDIR = currentdir
+	if Input.is_action_just_pressed("FireBall"):
+		var fireball = FireBall.instance()
+		fireball.position = position
+		get_parent().add_child(fireball)
+		
+		
 
 # warning-ignore:unused_argument
 func player_movement(delta):
