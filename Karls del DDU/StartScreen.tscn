@@ -39,14 +39,14 @@ offset = Vector2( -3762.36, -1093.03 )
 
 [node name="Start" type="Button" parent="."]
 self_modulate = Color( 0, 0, 0, 0 )
-margin_left = 385.0
-margin_top = 223.0
-margin_right = 523.0
-margin_bottom = 304.0
+margin_left = 359.333
+margin_top = 219.333
+margin_right = 497.333
+margin_bottom = 300.333
 rect_scale = Vector2( 1.2386, 0.912842 )
 
 [node name="Sprite" type="Sprite" parent="Start"]
-position = Vector2( -29.3342, -14.9716 )
+position = Vector2( -1.07654, 9.49414 )
 scale = Vector2( 0.278991, 0.403783 )
 texture = ExtResource( 3 )
 
