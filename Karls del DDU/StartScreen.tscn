@@ -1,17 +1,46 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Skærmbillede 2023-10-10 kl. 09.41.33.png" type="Texture" id=1]
+[ext_resource path="res://StartScreen.gd" type="Script" id=2]
 
 [node name="StartScreen" type="Node2D"]
 position = Vector2( 0, -5 )
 scale = Vector2( 1.5, 1.5 )
+script = ExtResource( 2 )
 
 [node name="Node2D" type="Node2D" parent="."]
+position = Vector2( -182, -100.667 )
+
+[node name="Sprite" type="Sprite" parent="Node2D"]
+position = Vector2( 1942, 638 )
+scale = Vector2( 0.347654, 0.306526 )
+texture = ExtResource( 1 )
+offset = Vector2( -3762.36, -1093.03 )
+
+[node name="Sprite2" type="Sprite" parent="Node2D"]
+position = Vector2( 1482.67, 638 )
+scale = Vector2( 0.347654, 0.306526 )
+texture = ExtResource( 1 )
+offset = Vector2( -3762.36, -1093.03 )
+
+[node name="Sprite3" type="Sprite" parent="Node2D"]
+position = Vector2( 1016, 638 )
+scale = Vector2( 0.347654, 0.306526 )
+texture = ExtResource( 1 )
+offset = Vector2( -3762.36, -1093.03 )
+
+[node name="Sprite4" type="Sprite" parent="Node2D"]
+position = Vector2( 556.667, 638 )
+scale = Vector2( 0.347654, 0.306526 )
+texture = ExtResource( 1 )
+offset = Vector2( -3762.36, -1093.03 )
 
 [node name="Start" type="Button" parent="."]
 self_modulate = Color( 0, 0, 0, 0 )
-margin_left = 380.0
-margin_top = 257.333
-margin_right = 564.0
-margin_bottom = 354.333
+margin_left = 198.0
+margin_top = 156.666
+margin_right = 382.0
+margin_bottom = 253.666
 rect_scale = Vector2( 1.2386, 0.912842 )
 
 [node name="Sprite" type="Sprite" parent="Start"]
@@ -29,10 +58,10 @@ text = "Enter The World"
 
 [node name="Quit" type="Button" parent="."]
 self_modulate = Color( 0, 0, 0, 0 )
-margin_left = 399.8
-margin_top = 381.333
-margin_right = 524.8
-margin_bottom = 449.333
+margin_left = 217.8
+margin_top = 280.666
+margin_right = 342.8
+margin_bottom = 348.666
 rect_scale = Vector2( 1.55341, 1.16084 )
 
 [node name="Sprite2" type="Sprite" parent="Quit"]
@@ -48,13 +77,12 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Quit
 "
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 510, 310 )
-
 [node name="Label" type="Label" parent="."]
-margin_left = 156.0
-margin_top = 64.0
-margin_right = 259.0
-margin_bottom = 78.0
+margin_left = 30.6667
+margin_top = 34.6667
+margin_right = 133.667
+margin_bottom = 48.6667
 rect_scale = Vector2( 6.17451, 3.29983 )
 text = "Zlime - 1 - rama"
+
+[connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
