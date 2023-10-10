@@ -19,7 +19,7 @@ func _physics_process(delta):
 	if Health <= 0:
 		player_alive = false #alex endscreen
 		Health = 0
-		
+	Global.playerDIR = currentdir
 
 # warning-ignore:unused_argument
 func player_movement(delta):

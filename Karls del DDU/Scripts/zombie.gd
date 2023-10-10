@@ -41,9 +41,13 @@ func _on_Detection_body_exited(body):
 
 
 func _on_enemy_hitbox_area_entered(area):
+	print("xombie area entered")
 	if	area.has_method("player"):
 		in_attack_zone = true
 		print("slimesui")
+	if	area.has_method("FireBall"):
+		health -= 20
+		print("fireball zombieHit")
 
 
 func _on_enemy_hitbox_area_exited(area):
