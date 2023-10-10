@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://art/particles/Smoke &amp; Fire.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/fireTrailHitbox.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/fireTrail.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/fireTrailHitbox.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/fireTrail.gd" type="Script" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
