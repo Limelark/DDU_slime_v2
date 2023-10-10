@@ -1,11 +1,8 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://art/characters/player.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/player_hitbox.gd" type="Script" id=3]
-[ext_resource path="res://esc menu button.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/ColorRect.gd" type="Script" id=5]
-[ext_resource path="res://joystix/joystix monospace.otf" type="DynamicFontData" id=6]
 
 [sub_resource type="AtlasTexture" id=27]
 atlas = ExtResource( 2 )
@@ -292,18 +289,7 @@ border_width_right = 7
 border_width_bottom = 7
 border_color = Color( 0.8, 0.8, 0.8, 0 )
 
-<<<<<<< Updated upstream
-[sub_resource type="DynamicFont" id=58]
-size = 43
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 6 )
-
-[node name="playernodes" type="Node2D"]
-
-[node name="Player" type="KinematicBody2D" parent="."]
-=======
 [node name="Player" type="KinematicBody2D"]
->>>>>>> Stashed changes
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 1 )
@@ -363,60 +349,9 @@ autostart = true
 wait_time = 0.02
 autostart = true
 
-<<<<<<< Updated upstream
-[node name="ColorRect" type="ColorRect" parent="Player"]
-pause_mode = 2
-visible = false
-margin_left = -273.0
-margin_top = -165.0
-margin_right = 272.0
-margin_bottom = 163.0
-script = ExtResource( 5 )
-
-[node name="Label" type="Label" parent="Player/ColorRect"]
-margin_left = 161.0
-margin_top = 138.0
-margin_right = 394.0
-margin_bottom = 198.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 58 )
-text = "PAUSED"
-
-[node name="Label2" type="Label" parent="Player/ColorRect"]
-margin_left = 161.0
-margin_top = 192.0
-margin_right = 483.0
-margin_bottom = 252.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 58 )
-text = "Click esc"
-
-[node name="Button" type="Button" parent="Player"]
-self_modulate = Color( 0, 0, 0, 0 )
-margin_left = 199.0
-margin_top = -141.0
-margin_right = 211.0
-margin_bottom = -121.0
-rect_scale = Vector2( 3.68982, 1.72566 )
-
-[node name="Sprite" type="Sprite" parent="Player/Button"]
-position = Vector2( 6.03253, 10.1781 )
-scale = Vector2( 0.0235645, 0.0413484 )
-z_index = 1000
-texture = ExtResource( 4 )
-
-[connection signal="area_entered" from="Player/player_hitbox" to="Player" method="_on_player_hitbox_area_entered"]
-[connection signal="area_exited" from="Player/player_hitbox" to="Player" method="_on_player_hitbox_area_exited"]
-[connection signal="timeout" from="Player/slimeCooldown" to="Player" method="_on_slimeCooldown_timeout"]
-[connection signal="timeout" from="Player/playerAttack" to="Player" method="_on_playerAttack_timeout"]
-[connection signal="timeout" from="Player/playerRegen" to="Player" method="_on_playerRegen_timeout"]
-[connection signal="timeout" from="Player/ManaTimer" to="Player" method="_on_Timer_timeout"]
-[connection signal="pressed" from="Player/Button" to="Player/ColorRect" method="_on_Button_pressed"]
-=======
 [connection signal="area_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_entered"]
 [connection signal="area_exited" from="player_hitbox" to="." method="_on_player_hitbox_area_exited"]
 [connection signal="timeout" from="slimeCooldown" to="." method="_on_slimeCooldown_timeout"]
 [connection signal="timeout" from="playerAttack" to="." method="_on_playerAttack_timeout"]
 [connection signal="timeout" from="playerRegen" to="." method="_on_playerRegen_timeout"]
 [connection signal="timeout" from="ManaTimer" to="." method="_on_Timer_timeout"]
->>>>>>> Stashed changes

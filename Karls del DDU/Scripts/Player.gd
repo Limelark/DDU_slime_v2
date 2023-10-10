@@ -14,10 +14,6 @@ var enemyType = null
 var FireBall = preload("res://Scenes/FireBall.tscn")
 var Mana = 100
 
-func _process(delta):
-	if Health == 0:
-		get_tree().change_scene("res://DeathScreen.tscn")
-
 func _physics_process(delta):
 	player_movement(delta);
 	enemy_attack();

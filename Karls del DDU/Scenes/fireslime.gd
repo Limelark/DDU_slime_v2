@@ -88,6 +88,11 @@ func _on_slime_hitbox_area_entered(area):
 	if	area.has_method("player"):
 		in_attack_zone = true
 		print("slimesui")
+	if	area.has_method("FireBall"):
+		health -= 2
+		print("fireball zombieHit")
+		area.get_parent().queue_free()
+		updateHealth()
 
 
 func _on_slime_hitbox_area_exited(area):
