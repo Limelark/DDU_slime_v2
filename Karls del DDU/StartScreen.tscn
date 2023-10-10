@@ -1,0 +1,60 @@
+[gd_scene format=2]
+
+[node name="StartScreen" type="Node2D"]
+position = Vector2( 0, -5 )
+scale = Vector2( 1.5, 1.5 )
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Start" type="Button" parent="."]
+self_modulate = Color( 0, 0, 0, 0 )
+margin_left = 380.0
+margin_top = 257.333
+margin_right = 564.0
+margin_bottom = 354.333
+rect_scale = Vector2( 1.2386, 0.912842 )
+
+[node name="Sprite" type="Sprite" parent="Start"]
+position = Vector2( 95.6, 44.375 )
+scale = Vector2( 0.169487, 0.303335 )
+
+[node name="Label" type="Label" parent="Start"]
+margin_left = 49.1308
+margin_top = 40.9995
+margin_right = 192.131
+margin_bottom = 146.0
+rect_scale = Vector2( 0.939131, 1.40151 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Enter The World"
+
+[node name="Quit" type="Button" parent="."]
+self_modulate = Color( 0, 0, 0, 0 )
+margin_left = 399.8
+margin_top = 381.333
+margin_right = 524.8
+margin_bottom = 449.333
+rect_scale = Vector2( 1.55341, 1.16084 )
+
+[node name="Sprite2" type="Sprite" parent="Quit"]
+position = Vector2( 63.9885, 30.6875 )
+scale = Vector2( 0.112498, 0.214843 )
+
+[node name="Label" type="Label" parent="Quit"]
+margin_left = 47.8
+margin_top = 27.875
+margin_right = 165.8
+margin_bottom = 83.875
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Quit
+"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 510, 310 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 156.0
+margin_top = 64.0
+margin_right = 259.0
+margin_bottom = 78.0
+rect_scale = Vector2( 6.17451, 3.29983 )
+text = "Zlime - 1 - rama"
