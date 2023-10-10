@@ -10,22 +10,26 @@ var Health = 100
 var player_alive = true
 var attack_ip = false
 var enemyType = null
+
 var FireBall = preload("res://Scenes/FireBall.tscn")
+var Mana = 100
 
 func _physics_process(delta):
 	player_movement(delta);
 	enemy_attack();
 	attack();
 	updateHealth();
+	updateMana();
 	if Health <= 0:
 		player_alive = false #alex endscreen
 		Health = 0
 	Global.playerDIR = currentdir
-	if Input.is_action_just_pressed("FireBall"):
+	
+	if Input.is_action_just_pressed("FireBall") and Mana >=50:
 		var fireball = FireBall.instance()
 		fireball.position = position
 		get_parent().add_child(fireball)
-		
+		Mana -= 50
 		
 
 # warning-ignore:unused_argument
@@ -185,6 +189,9 @@ func updateHealth():
 		pass
 	else:
 		healthBar.visible = true
+func updateMana():
+	var manaBar = $playerMana
+	manaBar.value = Mana
 
 func _on_playerRegen_timeout():
 	if	Health < 100:
@@ -193,4 +200,13 @@ func _on_playerRegen_timeout():
 			Health = 100
 	elif Health <= 0:
 		Health = 0
+	
+
+
+func _on_Timer_timeout():#ManaTimer
+	Mana += 1
+	if Mana > 100:
+		Mana = 100
+	$ManaTimer.start()
+	
 	

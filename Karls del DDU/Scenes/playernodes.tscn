@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://art/characters/player.png" type="Texture" id=2]
@@ -271,15 +271,23 @@ radius = 14.0
 
 [sub_resource type="StyleBoxFlat" id=56]
 bg_color = Color( 0.109804, 0.854902, 0.0862745, 1 )
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
 border_color = Color( 0.8, 0.8, 0.8, 0 )
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=57]
+bg_color = Color( 0.0705882, 0.12549, 0.945098, 1 )
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color( 0.8, 0.8, 0.8, 0 )
 
 [node name="playernodes" type="Node2D"]
 
@@ -316,17 +324,31 @@ current = true
 zoom = Vector2( 0.5, 0.5 )
 
 [node name="playerhealth" type="ProgressBar" parent="Player"]
-margin_left = -253.0
-margin_top = -147.0
-margin_right = 57.0
-margin_bottom = -83.0
+margin_left = -254.0
+margin_top = -148.0
+margin_right = 56.0
+margin_bottom = -116.0
 rect_scale = Vector2( 0.5, 0.5 )
 theme = SubResource( 55 )
 custom_styles/fg = SubResource( 56 )
 percent_visible = false
 
+[node name="playerMana" type="ProgressBar" parent="Player"]
+margin_left = -254.0
+margin_top = -132.0
+margin_right = 56.0
+margin_bottom = -100.0
+rect_scale = Vector2( 0.5, 0.5 )
+theme = SubResource( 55 )
+custom_styles/fg = SubResource( 57 )
+percent_visible = false
+
 [node name="playerRegen" type="Timer" parent="Player"]
 wait_time = 5.0
+autostart = true
+
+[node name="ManaTimer" type="Timer" parent="Player"]
+wait_time = 0.02
 autostart = true
 
 [connection signal="area_entered" from="Player/player_hitbox" to="Player" method="_on_player_hitbox_area_entered"]
@@ -334,3 +356,4 @@ autostart = true
 [connection signal="timeout" from="Player/slimeCooldown" to="Player" method="_on_slimeCooldown_timeout"]
 [connection signal="timeout" from="Player/playerAttack" to="Player" method="_on_playerAttack_timeout"]
 [connection signal="timeout" from="Player/playerRegen" to="Player" method="_on_playerRegen_timeout"]
+[connection signal="timeout" from="Player/ManaTimer" to="Player" method="_on_Timer_timeout"]
