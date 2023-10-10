@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/slime.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/playernodes.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/zombie.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/fireslime.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/fireTrail.tscn" type="PackedScene" id=5]
+
+[node name="Realworld" type="Node2D"]
+position = Vector2( 212, 74 )
+
+[node name="fireTrail" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2, -83 )
+
+[node name="fireslime" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2, -83 )
+
+[node name="Slime" parent="." instance=ExtResource( 1 )]
+position = Vector2( 105, -70 )
+
+[node name="zombie" parent="." instance=ExtResource( 3 )]
+position = Vector2( -127, -60 )
+
+[node name="playernodes" parent="." instance=ExtResource( 2 )]
