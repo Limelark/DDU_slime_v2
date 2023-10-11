@@ -133,10 +133,10 @@ shape = SubResource( 42 )
 wait_time = 0.5
 
 [node name="slimeHealth" type="ProgressBar" parent="."]
-margin_left = -6.0
-margin_top = 6.0
-margin_right = 114.0
-margin_bottom = 36.0
+margin_left = -107.0
+margin_top = -39.0
+margin_right = 2103.0
+margin_bottom = 111.0
 rect_scale = Vector2( 0.1, 0.1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_styles/fg = SubResource( 40 )
@@ -153,6 +153,8 @@ position = Vector2( -85, 122 )
 position = Vector2( 65, 108 )
 
 [node name="Slimespawntimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
 
 [connection signal="body_entered" from="Detection" to="." method="_on_Detection_body_entered"]
 [connection signal="body_exited" from="Detection" to="." method="_on_Detection_body_exited"]
