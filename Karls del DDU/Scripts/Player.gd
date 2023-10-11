@@ -15,7 +15,7 @@ var FireBall = preload("res://Scenes/FireBall.tscn")
 var Mana = 100
 
 func _process(delta):
-	if Health == 0:
+	if Health <=10:
 		get_tree().change_scene("res://DeathScreen.tscn")
 		Health = 100
 
