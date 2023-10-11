@@ -1,8 +1,11 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://art/characters/player.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/player_hitbox.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/ColorRect1.gd" type="Script" id=4]
+[ext_resource path="res://esc menu button.png" type="Texture" id=5]
+[ext_resource path="res://joystix/joystix monospace.otf" type="DynamicFontData" id=6]
 
 [sub_resource type="AtlasTexture" id=27]
 atlas = ExtResource( 2 )
@@ -289,6 +292,10 @@ border_width_right = 7
 border_width_bottom = 7
 border_color = Color( 0.8, 0.8, 0.8, 0 )
 
+[sub_resource type="DynamicFont" id=58]
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 3
 collision_mask = 3
@@ -349,9 +356,41 @@ autostart = true
 wait_time = 0.02
 autostart = true
 
+[node name="ColorRect" type="ColorRect" parent="."]
+pause_mode = 2
+visible = false
+margin_left = -262.0
+margin_top = -160.0
+margin_right = 266.0
+margin_bottom = 158.0
+script = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="ColorRect"]
+margin_left = 210.0
+margin_top = 138.0
+margin_right = 327.0
+margin_bottom = 181.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 58 )
+text = "PAUSED
+PRESS ESC"
+
+[node name="Button" type="Button" parent="."]
+self_modulate = Color( 0, 0, 0, 0 )
+margin_left = 206.0
+margin_top = -140.0
+margin_right = 244.0
+margin_bottom = -107.0
+
+[node name="Sprite" type="Sprite" parent="Button"]
+position = Vector2( 18, 16.5 )
+scale = Vector2( 0.0742188, 0.0644531 )
+texture = ExtResource( 5 )
+
 [connection signal="area_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_entered"]
 [connection signal="area_exited" from="player_hitbox" to="." method="_on_player_hitbox_area_exited"]
 [connection signal="timeout" from="slimeCooldown" to="." method="_on_slimeCooldown_timeout"]
 [connection signal="timeout" from="playerAttack" to="." method="_on_playerAttack_timeout"]
 [connection signal="timeout" from="playerRegen" to="." method="_on_playerRegen_timeout"]
 [connection signal="timeout" from="ManaTimer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="Button" to="ColorRect" method="_on_Button_pressed"]

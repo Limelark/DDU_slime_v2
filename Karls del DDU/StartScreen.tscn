@@ -251,7 +251,7 @@ margin_top = 18.6667
 margin_right = 613.667
 margin_bottom = 111.667
 custom_fonts/normal_font = SubResource( 1 )
-text = "Zlime-1-rama"
+text = "Zlime-2-rama"
 
 [connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]
