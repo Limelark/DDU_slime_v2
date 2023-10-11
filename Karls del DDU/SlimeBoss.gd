@@ -3,13 +3,17 @@ extends KinematicBody2D
 var speed = 0
 var chase = false
 var player = null
-
+var spawnSlimes = false
+var slimeTimer = true
 var health = 2000
 var in_attack_zone = false
 var dead = false
 var canTakeDamage = true
+var slimeSpawnPos = 1
+var fireSlime = preload("res://Scenes/fireslime.tscn")
 func _physics_process(delta):
 	
+	spawnSlimes()
 	if	health > -999999:
 		updateHealth();
 		deadCheck()
@@ -31,13 +35,11 @@ func _physics_process(delta):
 		
 	
 func _on_Detection_body_entered(body):
-	player = body
-	chase = true
+	spawnSlimes = true
 	
 
 func _on_Detection_body_exited(body):
-	chase = false
-	player = null
+	spawnSlimes = false
 
 
 
@@ -81,6 +83,14 @@ func deadCheck():
 		health = -999999999
 		
 		
+func spawnSlimes():
+	if spawnSlimes == true:
+		var fireslime = fireSlime.instance()
+		fireslime.position = $Slimespawn1.position
+		add_child(fireslime)
+		spawnSlimes = false
+
+	
 	
 	
 
@@ -100,3 +110,8 @@ func _on_slime_hitbox_area_exited(area):
 	if	area.has_method("player"):
 		in_attack_zone = false
 
+
+
+func _on_Slimespawn_timer_timeout():
+	slimeTimer = true
+	$Slimespawntimer.start()
