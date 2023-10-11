@@ -129,15 +129,15 @@ func enemy_attack():
 		print("took damage")
 		print(enemyType)
 		if	enemyType == "slime":
-			Health -= 5
+			Health -= 10
 			print("slimeattack")
 			print(Health)
 		elif		enemyType == "zombie":
-			Health -= 10
+			Health -= 20
 			print("zombieattack")
 			print(Health)
 		elif		enemyType == "fireTrail":
-			Health -= 3
+			Health -= 5
 			print("fireBurn")
 			print(Health)
 		

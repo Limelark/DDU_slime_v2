@@ -152,9 +152,12 @@ position = Vector2( -85, 122 )
 [node name="Slimespawn1" type="Position2D" parent="."]
 position = Vector2( 65, 108 )
 
+[node name="Slimespawntimer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="Detection" to="." method="_on_Detection_body_entered"]
 [connection signal="body_exited" from="Detection" to="." method="_on_Detection_body_exited"]
 [connection signal="area_entered" from="slime_hitbox" to="." method="_on_slime_hitbox_area_entered"]
 [connection signal="area_exited" from="slime_hitbox" to="." method="_on_slime_hitbox_area_exited"]
 [connection signal="timeout" from="deathTimer" to="." method="_on_deathTimer_timeout"]
 [connection signal="timeout" from="takeDamageTimer" to="." method="_on_takeDamageTimer_timeout"]
+[connection signal="timeout" from="Slimespawntimer" to="." method="_on_Slimespawn_timer_timeout"]
