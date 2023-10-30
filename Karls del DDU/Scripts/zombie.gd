@@ -4,6 +4,8 @@ var speed = 70
 var chase = false
 var player = null
 
+
+
 var health = 150
 var in_attack_zone = false
 var dead = false
@@ -41,9 +43,15 @@ func _on_Detection_body_exited(body):
 
 
 func _on_enemy_hitbox_area_entered(area):
+	print("xombie area entered")
 	if	area.has_method("player"):
 		in_attack_zone = true
 		print("slimesui")
+	if	area.has_method("FireBall"):
+		health -= 20
+		print("fireball zombieHit")
+		area.get_parent().queue_free()
+		updateHealth()
 
 
 func _on_enemy_hitbox_area_exited(area):
@@ -70,7 +78,7 @@ func updateHealth():
 	var healthBar = $zombieHealth
 	
 	healthBar.value = health
-	if	health >= 100:
+	if	health >= 150:
 		healthBar.visible = false
 	else:
 		healthBar.visible = true
@@ -82,6 +90,6 @@ func deadCheck():
 		$zombieHealth.visible = false
 		health = -999999999
 		
-		
 	
-	
+func takeFireBallDamage():
+	health -= 20
